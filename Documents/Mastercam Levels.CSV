@@ -11,7 +11,7 @@
 14,TC2-030_ACTUATOR_LINK,release
 15,TC2-031_ACTUATOR_ARM,release
 16,TC2-032_BEARING_ARM,release
-18,,nozzle
+18,,
 19,TC2-086_REAR_HEATER_SPACER,nozzle
 20,TC2-081_ATTACHMENT_BRACKET,heater
 21,TC2-082_HEATER_PLATE,heater
@@ -19,8 +19,8 @@
 23,TC2-084_FRONT_HEATER_SPACER,heater
 25,VE-092-6_SERVO_HORN,transfer
 27,TC2-029_ACTUATOR_ROD,release
-30,,release
-32,,heater
+30,,
+32,,
 34,VE-083_FEED_BEARING,release
 35,VE-084_FEED_DOG,extruder
 37,VE-091_EXTRUDER_MOTOR,extruder
@@ -57,49 +57,66 @@
 81,VE-048_M3_NUT,hardware
 82,VE-049_M4_NUT,hardware
 84,TC2-004_FAN_BRKT,base
-88,blower,solid
-89,fan brkt,solid
+88,VE-093_BLOWER_SOLID,solid
+89,TC2-004_FAN_BRKT_SOLID,solid
 90,-048_blower,
 97,schwack,
-101,base_solid,solid
-102,back_solid,solid
-103,front_solid,solid
-104,bearing arm_solid,solid
-106,servo arm_solid,solid
-107,servo arm bushing_solid,solid
-108,transfer plate_solid,solid
-109,stationary gear_solid,solid
-110,pivot gear_solid,solid
-111,rotation block_solid,solid
-113,transfer block_solid,solid
-114,10? x 3mm magnet_solid,solid
-115,nozzle block_solid,solid
-116,nozzle stem_solid,solid
-117,nozzle_solid,solid
-120,heater block_solid,solid
-122,,solid
-123,,solid
+101,TC2-001_BASE_SOLID,solid
+102,TC2-002_BACK_SOLID,solid
+103,TC2-003_FRONT_SOLID,solid
+104,TC2-032_BEARING_ARM_SOLID,solid
+106,TC2-006_SERVO_ARM_SOLID,solid
+107,TC2-005_SERVO_ARM_BUSHING_SOLID,solid
+108,TC2-008_TRANSFER_PLATE_SOLID,solid
+109,TC2-009_STATIONARY_GEAR 48_SOLID,solid
+110,TC2-010_PIVOT_GEAR_24_SOLID,solid
+111,TC2-011_ROTATION_BLOCK_SOLID,solid
+113,TC2-062_TRANSFER_BLOCK_SOLID,solid
+114,VE-054_MAGNET_SOLID,solid
+115,TC2-060_NOZZLE_BLOCK_SOLID,solid
+116,VE-096_NOZZLE_STEM_SOLID,solid
+117,VE-097_NOZZLE_SOLID,solid
+120,TC2-061_HEATER_BLOCK_SOLID,solid
+122,VE-094_HEATER_ELEMENT_SOLID,solid
+123,VE-095_THERMISTOR_SOLID,solid
 126,actuator rod retainer_solid,solid
-127,actuator rod_solid,solid
-128,kickout_solid,solid
-129,actuator arm_solid,solid
-130,actuator link_solid,solid
-133,feed bearing_solid,solid
-134,guide pin_solid,solid
-135,feed dog_solid,solid
-136,extruder motor_solid,solid
+127,TC2-029_ACTUATOR_ROD_SOLID,solid
+128,TC2-028_KICKOUT_SOLID,solid
+129,TC2-031_ACTUATOR_ARM_SOLID,solid
+130,TC2-030_ACTUATOR_LINK_SOLID,solid
+133,VE-083_FEED_BEARING_SOLID,solid
+134,TC2-033_GUIDE_PIN_SOLID,solid
+135,VE-084_FEED_DOG_SOLID,solid
+136,VE-091_EXTRUDER_MOTOR_SOLID,solid
 137,extruder shaft_solid,solid
-138,servo_solid,solid
-139,servo horn_solid,solid
-142,attachment bracket_solid,solid
-143,heater plate_solid,solid
-144,front heater spacer_solid,solid
-145,rear heater spacer_solid,solid
-146,heater stop_solid,solid
+138,VE-092-1_SERVO_SOLID,solid
+139,VE-092-6_SERVO_HORN_SOLID,solid
+142,TC2-081_ATTACHMENT_BRACKET_SOLID,solid
+143,TC2-082_HEATER_PLATE_SOLID,solid
+144,TC2-084_FRONT_HEATER_SPACER_SOLID,solid
+145,TC2-086_REAR_HEATER_SPACER_SOLID,solid
+146,TC2-083_HEATER_STOP_SOLID,solid
 147,heater washers_solid,solid
 148,heater support,solid
 151,washer solid,solid
-152,m6 nut_solid,solid
-156,mold insert solid,solid
-157,heater mold,solid
-158,transfer mold,solid
+152,VE-050_M6_NUT_SOLID,solid
+156,TC2-070_BLOCK_MOLD_INSERT_SOLID,solid
+157,TC2-072_BLOCK_MOLD_RIGHT_SOLID,solid
+158,TC2-071_BLOCK_MOLD_LEFT_SOLID,solid
+159,VE-040_M2_X_3_SET_SCREW_SOLID,solid
+160,VE-041_M2_X_5_SCREW_SOLID,solid
+161,VE-042_M3_X_6_SHCS_SOLID,solid
+162,VE-043_M3_X_20_SHCS_SOLID,solid
+163,VE-045_M3_WASHER_SOLID,solid
+164,VE-046_M4_WASHER_SOLID,solid
+165,VE-047_M6_WASHER_SOLID,solid
+166,VE-048_M3_NUT_SOLID,solid
+167,VE-049_M4_NUT_SOLID,solid
+168,VE-092-5_SERVO_HORN_BOLT_SOLID,solid
+169,VE-051_PRESSURE_SPRING_SOLID,solid
+170,VE-052_HEATER_SPRING_SOLID,solid
+171,VE-053_TENSION_SPRING_SOLID,solid
+172,TC2-073_BLOCK_GAGE_1_SOLID,solid
+173,TC2-074_BLOCK_GAGE_2_SOLID,solid
+174,TC2-075_BLOCK_GAGE_3_SOLID,solid
+175,TC2-076_DRILL_JIG_SOLID,solid
