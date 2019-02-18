@@ -1,0 +1,36 @@
+Multi material 3d printing might well be the holy grail of the maker community.  It is a problem that I first considered several years ago but put aside since I rarely print for decoration, and functional parts don't care about color and rarely need more than a single type of filament.
+
+Then I saw a video last week titled "Prusa MMU2 Multi Material Unit - Tips and Tricks" from Chris Riley. (https://www.youtube.com/watch?v=XH-F8h7Y1tM)   I had seen a few reviews of the device and already decided that it seemed like a rather wasteful and over complicated way of switching material filaments, particularily since I had already designed the Filament Master, but once I saw how complicated what must be considered the "state of the art" REALLY is I was astounded.   Having been a jig and fixture builder for a major Aerospace subcontractor from the mid 1980's until CA chased the golden goose away, when a new job came in it was my responsibility to make the first part and build any fixtures needed for the saw, router, drill, etc. departments to fabricate the remainder as mindlessly and efficiently as possible.
+
+Enter the Filament Master.  This is a very early model of the 2nd version of the toolchanger system.  I chose to present this early iteration both for it's simplicity and the diversity of methods involved in the construction.  While being completely functional as is, it lends itself well to modification and improvement, which is a good thing given the ever increasing variety of materials available.  My initial motivation was to be able to print conductive traces into my prints for LEDs, switches, and other components, and was interested in soluble support structures.
+
+While there may be a few solutions that allow for printing multi-color models, such as the Prusa MK3, XYZPrinting's Da Vinci Color, or the questionable concept behind the Pallet2 from Mosaic, along with the individual problems they present they all share the weakness of using a single nozzle.  While this is less of a concern if multi-color prints are the only goal, it is a major problem for multi-material prints.  Dual extruder printers overcome this problem to an extent, but along with greatly reducing the printable area with the need to overlap the nozzle reach, they are severely limited, as the name implies, to only two materials.  Sure, you can choose any two you like, but two is always only two, no matter the flavors.
+
+Another major concern with any potential solution is the electronics.  Aside from the costs associated with adding a full extruder setup, with a not just a motor but possibly a separate heater, thermistor, bearing, and feed dog needed  for each color or material added, most non-industrial 3d printers use either a Melzi or R.A.M.P.S. type controller which severely limits the expansion options.  While there are quite a few pins that could be used or hijacked from a R.A.M.P.S./Arduino Mega based system, or a second microcontroller could be addressed using the I2C interface, there are limits to the amount of extra hardware that can be added as well as memory considerations that must be taken into account since some brands of firmware are considerably larger than others.
+
+So, does the Holy Grail actually exist? If so, then what exactly does the perfect solution look like?
+
+It should:
+Print using any filament out there
+	Each filament would use the nozzle size best suited to its composition
+	Each filament would be heated to its optimum temperature
+	Take both 1.75mm & 3mm filament*
+Incorporate any number of filaments into a single print
+	While 3 or 4 might be fine to start, there had to be a way to use 100+ if desired
+	Handle all filament changes automatically
+		Filament changes should be like CNC tool changes: quick and unsupervised
+		Individual nozzle offsets might be needed, but avoided if possible
+			Must be repeatable within 0.1mm (.004") or better
+Not waste material
+	No purge blocks
+	No priming tower
+	No ooze
+Spend little to no money
+	Use a single extruder motor
+	Print or fabricate all parts by hand
+	Avoid having to buy material - recycle common items if needed
+Not require an electronics upgrade
+	Use only the existing outputs of my current RAMPS controller**
+
+*low priority
+**The R.A.M.P.S. 1.4 has an open stepper controller slot (driver needed), built-in support for four servos, three unused switch connections originally meant for far side XYZ stops, five digital only and seven digital/analog pins on aux1 and aux2, one open thermistor connector, and an open I2C interface.  There appear to be six unused pins under the Smart Controller header as well.
