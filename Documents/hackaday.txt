@@ -1,8 +1,8 @@
-Multi material 3d printing might well be the holy grail of the maker community.  It is a problem that I first considered several years ago but put aside since I rarely print for decoration, and functional parts don't care about color and rarely need more than a single type of filament.
+Multi material 3d printing might well be the Holy Grail of the maker community.  It is a problem that I first considered several years ago but put aside since I rarely print for decoration, and functional parts don't care about color and rarely need more than a single type of filament.
 
-Then I saw a video last week titled "Prusa MMU2 Multi Material Unit - Tips and Tricks" from Chris Riley. (https://www.youtube.com/watch?v=XH-F8h7Y1tM)   I had seen a few reviews of the device and already decided that it seemed like a rather wasteful and over complicated way of switching material filaments, particularily since I had already designed the Filament Master, but once I saw how complicated what must be considered the "state of the art" REALLY is I was astounded.   Having been a jig and fixture builder for a major Aerospace subcontractor from the mid 1980's until CA chased the golden goose away, when a new job came in it was my responsibility to make the first part and build any fixtures needed for the saw, router, drill, etc. departments to fabricate the remainder as mindlessly and efficiently as possible.
+Then I saw a video last week titled "Prusa MMU2 Multi Material Unit - Tips and Tricks" from Chris Riley. (https://www.youtube.com/watch?v=XH-F8h7Y1tM)   I had seen a few reviews of the device and already decided that it seemed like a rather wasteful and over complicated way of switching material filaments, particularily since I had already designed the Filament Master, but once I saw how complicated what must be considered the "state of the art" REALLY is I was astounded.   Between the convoluted way the filament needs to be staged in order for it to be retracted 200mm or more, to the way it needs to line up  with little to no error over and over, with each filament having to rethread through several needle holes with every change, that thing is an absolute nightmare.  When even the most savvy and experienced 3d gurus on YouTube ned to spend hours and hours fine tuning and tweaking 100 crazy settings like 'ramming speed' and worry about the material stringing as it retracts, the poor average Joe doesn't stand a chance. Having been a jig and fixture builder for a major Aerospace subcontractor from the mid 1980's until CA chased the golden goose away, when a new job came in it was my responsibility to make the first part and build any fixtures needed for the saw, router, drill, etc. departments to fabricate the remainder as mindlessly and efficiently as possible.  The thing was, if these people produced bad parts, it was MY fault, and therefore my responsibility.  The tooling I built had to be, for lack of a better term, idiot-proof.  The MMU2 seems about as simple and user friendly as a starving pack of hyenas.  So let's see if we can do somwthing a little more simple, at least.  We might not end up with the ultra high quality prints that Mr. Prusa exhibits, but I am pretty good at my job so we shall see.
 
-Enter the Filament Master.  This is a very early model of the 2nd version of the toolchanger system.  I chose to present this early iteration both for it's simplicity and the diversity of methods involved in the construction.  While being completely functional as is, it lends itself well to modification and improvement, which is a good thing given the ever increasing variety of materials available.  My initial motivation was to be able to print conductive traces into my prints for LEDs, switches, and other components, and was interested in soluble support structures.
+Enter the Filament Master.  This is a very early model of the 2nd version of the toolchanger system I started working on about three years ago.  I chose to present this early iteration both for it's simplicity and the diversity of methods involved in the construction.  While being completely functional as is, it lends itself well to modification and improvement, which is a good thing given the ever increasing variety of materials available.  My initial motivation was to be able to print conductive traces into my prints for LEDs, switches, and other components, and was interested in soluble support structures.
 
 While there may be a few solutions that allow for printing multi-color models, such as the Prusa MK3, XYZPrinting's Da Vinci Color, or the questionable concept behind the Pallet2 from Mosaic, along with the individual problems they present they all share the weakness of using a single nozzle.  While this is less of a concern if multi-color prints are the only goal, it is a major problem for multi-material prints.  Dual extruder printers overcome this problem to an extent, but along with greatly reducing the printable area with the need to overlap the nozzle reach, they are severely limited, as the name implies, to only two materials.  Sure, you can choose any two you like, but two is always only two, no matter the flavors.
 
@@ -11,26 +11,34 @@ Another major concern with any potential solution is the electronics.  Aside fro
 So, does the Holy Grail actually exist? If so, then what exactly does the perfect solution look like?
 
 It should:
-Print using any filament out there
-	Each filament would use the nozzle size best suited to its composition
-	Each filament would be heated to its optimum temperature
-	Take both 1.75mm & 3mm filament*
-Incorporate any number of filaments into a single print
-	While 3 or 4 might be fine to start, there had to be a way to use 100+ if desired
-	Handle all filament changes automatically
-		Filament changes should be like CNC tool changes: quick and unsupervised
-		Individual nozzle offsets might be needed, but avoided if possible
-			Must be repeatable within 0.1mm (.004") or better
-Not waste material
-	No purge blocks
-	No priming tower
-	No ooze
-Spend little to no money
-	Use a single extruder motor
-	Print or fabricate all parts by hand
-	Avoid having to buy material - recycle common items if needed
-Not require an electronics upgrade
-	Use only the existing outputs of my current RAMPS controller**
+
+1. Print using any filament out there
+	A. Each filament should use the nozzle size best suited to its composition
+	B. Each filament should be heated to its optimum temperature
+	C. Take both 1.75mm & 3mm filament*
+2. Incorporate any number of filaments into a single print
+	A. While 3 or 4 might be fine to start, there had to be a way to use 100+ if desired
+	B. Filament changes should be immediate and automatic
+		i. Avoid useless extruder moves
+		ii. Be able to remove current filament without waiting to cool
+		iii. prestage and preheat the next filament
+3. Not waste material
+	A. No purge blocks
+	B. No priming tower
+	C. No ooze
+4. Be inexpensive
+	A. I already own an extruder motor, do not need another
+	B. Print or fabricate all parts by hand.  No exotic tools required
+	C. Avoid having to buy material - recycle common items if needed
+5. Be simple
+	A. I already own a controller, do not need another
+		i. Use only the existing outputs of my current RAMPS controller**
+		ii. Run on standard firmware using only basic G & M codes
+	B. No unusual skills required.
 
 *low priority
 **The R.A.M.P.S. 1.4 has an open stepper controller slot (driver needed), built-in support for four servos, three unused switch connections originally meant for far side XYZ stops, five digital only and seven digital/analog pins on aux1 and aux2, one open thermistor connector, and an open I2C interface.  There appear to be six unused pins under the Smart Controller header as well.
+
+
+So, did I manage to meet ANY of the goals?  Let's see.
+
